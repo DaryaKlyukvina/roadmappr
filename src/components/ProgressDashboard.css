@@ -1,0 +1,85 @@
+.progress-dashboard {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.progress-dashboard h2 {
+  margin: 0 0 20px 0;
+  color: #333;
+}
+
+.progress-bar-container {
+  margin-bottom: 25px;
+}
+
+.progress-bar {
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #8BC34A);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+.progress-text {
+  font-weight: 600;
+  color: #333;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.stat-card {
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.stat-number {
+  margin: 0;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.stat-card.total {
+  background-color: #E3F2FD;
+  color: #1565C0;
+}
+
+.stat-card.completed {
+  background-color: #E8F5E9;
+  color: #2E7D32;
+}
+
+.stat-card.in-progress {
+  background-color: #FFF3E0;
+  color: #EF6C00;
+}
+
+.stat-card.planned {
+  background-color: #F3E5F5;
+  color: #7B1FA2;
+}
+
+.stat-card.blocked {
+  background-color: #FFEBEE;
+  color: #C62828;
+}
