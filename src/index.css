@@ -1,15 +1,167 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    /* Цветовые переменные для светлой темы */
+    --bg-primary: #f5f7fa;
+    --bg-secondary: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --border-color: #e0e0e0;
+    --shadow: rgba(0, 0, 0, 0.1);
 }
 
 body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Темная тема */
+body.dark-theme {
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --text-primary: #e6edf3;
+    --text-secondary: #8b949e;
+    --border-color: #30363d;
+    --shadow: rgba(0, 0, 0, 0.8);
+}
+
+body.dark-theme .app-header {
+    background: linear-gradient(135deg, #1f6feb 0%, #0969da 100%);
+}
+
+body.dark-theme .technology-card,
+body.dark-theme .progress-section,
+body.dark-theme .filter-bar,
+body.dark-theme .import-export,
+body.dark-theme .bulk-actions,
+body.dark-theme .deadline-form {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    box-shadow: 0 2px 8px var(--shadow);
+    border-color: var(--border-color);
+}
+
+body.dark-theme .card-description,
+body.dark-theme .card-notes,
+body.dark-theme .notes-display p,
+body.dark-theme .stat-label,
+body.dark-theme .technology-current-status {
+    color: var(--text-secondary);
+}
+
+body.dark-theme .card-title,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4 {
+    color: var(--text-primary);
+}
+
+body.dark-theme input,
+body.dark-theme textarea,
+body.dark-theme select,
+body.dark-theme .notes-textarea,
+body.dark-theme .search-input,
+body.dark-theme .status-select {
+    background: #0d1117;
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+body.dark-theme input:focus,
+body.dark-theme textarea:focus,
+body.dark-theme select:focus {
+    border-color: #1f6feb;
+    box-shadow: 0 0 0 3px rgba(31, 111, 235, 0.2);
+}
+
+body.dark-theme .stat-item {
+    background: #0d1117;
+    border-left-color: inherit;
+}
+
+body.dark-theme .stat-item.completed {
+    background: rgba(76, 175, 80, 0.1);
+}
+
+body.dark-theme .stat-item.in-progress {
+    background: rgba(255, 152, 0, 0.1);
+}
+
+body.dark-theme .stat-item.not-started {
+    background: rgba(158, 158, 158, 0.1);
+}
+
+body.dark-theme .technology-checkbox {
+    background: #0d1117;
+    border-color: var(--border-color);
+}
+
+body.dark-theme .technology-checkbox:hover {
+    border-color: #1f6feb;
+    background: rgba(31, 111, 235, 0.1);
+}
+
+body.dark-theme .filter-btn {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border-color: var(--border-color);
+}
+
+body.dark-theme .filter-btn:hover {
+    border-color: #1f6feb;
+    color: #1f6feb;
+}
+
+body.dark-theme .filter-btn.active {
+    background: #1f6feb;
+    border-color: #1f6feb;
+    color: white;
+}
+
+body.dark-theme .edit-notes-btn,
+body.dark-theme .deadline-btn {
+    background: var(--bg-secondary);
+    border-color: #1f6feb;
+    color: #1f6feb;
+}
+
+body.dark-theme .edit-notes-btn:hover,
+body.dark-theme .deadline-btn:hover {
+    background: #1f6feb;
+    color: white;
+}
+
+body.dark-theme .meta-item {
+    background: rgba(31, 111, 235, 0.15);
+    color: #58a6ff;
+}
+
+body.dark-theme .no-notes,
+body.dark-theme .no-results p {
+    color: var(--text-secondary);
+}
+
+body.dark-theme .app-footer {
+    border-top-color: var(--border-color);
+    color: var(--text-secondary);
+}
+
+body.dark-theme .import-export-hint {
+    background: #0d1117;
+    color: var(--text-secondary);
+}
+
+body.dark-theme .bulk-status-update {
+    background: rgba(255, 152, 0, 0.1);
+    border-color: #f59f00;
 }
 
 #root {
-  width: 100%;
+    width: 100%;
 }

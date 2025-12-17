@@ -297,3 +297,31 @@ body.dark-theme .loading-spinner {
     border-color: rgba(31, 111, 235, 0.2);
     border-top-color: #1f6feb;
 }
+
+/* Анимация выделения для случайного выбора */
+.highlight-animation {
+    animation: highlight 2s ease-in-out;
+}
+
+@keyframes highlight {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    25% {
+        transform: scale(1.05);
+        box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+    }
+    75% {
+        transform: scale(1.05);
+        box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+}
