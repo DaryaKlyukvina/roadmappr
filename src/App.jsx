@@ -109,7 +109,7 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>🚀 Roadmap Progress Tracker</h1>
+        <h1>Roadmap Progress Tracker</h1>
         <p>Отслеживание этапов проекта в реальном времени</p>
       </header>
 
