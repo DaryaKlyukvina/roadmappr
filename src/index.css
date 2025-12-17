@@ -183,6 +183,11 @@ body.dark-theme .bulk-status-update {
     border-color: #f59f00;
 }
 
+/* Statistics numbers in dark theme */
+body.dark-theme .statistics-item__number {
+    color: white;
+}
+
 #root {
     width: 100%;
 }

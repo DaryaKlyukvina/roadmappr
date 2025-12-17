@@ -5,17 +5,17 @@
 .progress-label {
     font-size: 14px;
     font-weight: 600;
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 8px;
 }
 
 .progress-bar-container {
     width: 100%;
-    background: #e0e0e0;
+    background: var(--border-color);
     border-radius: 12px;
     overflow: hidden;
     position: relative;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 3px var(--shadow);
 }
 
 .progress-bar-fill {
@@ -69,7 +69,7 @@
     transform: translateY(-50%);
     font-size: 12px;
     font-weight: 700;
-    color: #999;
+    color: var(--text-secondary);
     z-index: 1;
 }
 
