@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNotification } from "../contexts/NotificationContext";
+import { Icon } from "@iconify/react";
 import "./ImportExport.css";
 
 function ImportExport({ technologies, onImport }) {
@@ -22,9 +23,9 @@ function ImportExport({ technologies, onImport }) {
             document.body.removeChild(link);
             URL.revokeObjectURL(url);
 
-            success("✅ Данные успешно экспортированы!");
+            success(<><Icon icon="mdi:check-circle" style={{ verticalAlign: "middle", marginRight: 8 }} /> Данные успешно экспортированы!</>);
         } catch (err) {
-            showError("❌ Ошибка при экспорте данных");
+            showError(<><Icon icon="mdi:close-circle" style={{ verticalAlign: "middle", marginRight: 8 }} /> Ошибка при экспорте данных</>);
             console.error(err);
         }
     };
@@ -73,11 +74,11 @@ function ImportExport({ technologies, onImport }) {
                 }));
 
                 onImport(normalizedData);
-                alert(`✅ Успешно импортировано ${normalizedData.length} технологий!`);
+                alert(`Успешно импортировано ${normalizedData.length} технологий!`);
                 event.target.value = ""; // Сброс input
             } catch (error) {
                 setImportError(error.message);
-                alert(`❌ Ошибка импорта: ${error.message}`);
+                alert(`Ошибка импорта: ${error.message}`);
             } finally {
                 setImporting(false);
             }
@@ -93,20 +94,20 @@ function ImportExport({ technologies, onImport }) {
 
     return (
         <div className="import-export">
-            <h3>📦 Импорт и экспорт данных</h3>
+            <h3><Icon icon="mdi:package-variant" style={{ verticalAlign: "middle", marginRight: 8 }} /> Импорт и экспорт данных</h3>
 
             <div className="import-export-actions">
                 <button
                     onClick={handleExport}
                     className="export-btn"
                     title="Скачать данные в JSON">
-                    ⬇️ Экспортировать данные
+                    <Icon icon="mdi:download" style={{ verticalAlign: "middle", marginRight: 8 }} /> Экспортировать данные
                 </button>
 
                 <label
                     className="import-btn"
                     title="Загрузить данные из JSON файла">
-                    ⬆️ Импортировать данные
+                    <Icon icon="mdi:upload" style={{ verticalAlign: "middle", marginRight: 8 }} /> Импортировать данные
                     <input
                         type="file"
                         accept=".json"
@@ -125,10 +126,10 @@ function ImportExport({ technologies, onImport }) {
 
             <div className="import-export-hint">
                 <p>
-                    💡 <strong>Экспорт:</strong> Сохраните текущий прогресс в JSON файл
+                    <Icon icon="mdi:lightbulb" style={{ verticalAlign: "middle", marginRight: 6 }} /> <strong>Экспорт:</strong> Сохраните текущий прогресс в JSON файл
                 </p>
                 <p>
-                    💡 <strong>Импорт:</strong> Загрузите данные из ранее сохраненного файла
+                    <Icon icon="mdi:lightbulb" style={{ verticalAlign: "middle", marginRight: 6 }} /> <strong>Импорт:</strong> Загрузите данные из ранее сохраненного файла
                 </p>
             </div>
         </div>

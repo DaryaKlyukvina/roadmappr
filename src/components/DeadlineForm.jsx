@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
+import { Icon } from "@iconify/react";
 import "./DeadlineForm.css";
 
 function DeadlineForm({ technology, onSave, onClose }) {
@@ -71,7 +72,7 @@ function DeadlineForm({ technology, onSave, onClose }) {
             <div
                 className="deadline-form"
                 onClick={(e) => e.stopPropagation()}>
-                <h3>📅 Установить сроки изучения</h3>
+                <h3><Icon icon="mdi:calendar" style={{ verticalAlign: "middle", marginRight: 8 }} /> Установить сроки изучения</h3>
                 <p className="technology-title">{technology.title}</p>
 
                 <form onSubmit={handleSubmit}>
@@ -90,11 +91,11 @@ function DeadlineForm({ technology, onSave, onClose }) {
                             aria-describedby={errors.deadline ? "deadline-error" : undefined}
                         />
                         {errors.deadline && (
-                            <span
+                                <span
                                 id="deadline-error"
                                 className="error-message"
                                 role="alert">
-                                ⚠️ {errors.deadline}
+                                <Icon icon="mdi:alert" style={{ verticalAlign: "middle", marginRight: 6 }} /> {errors.deadline}
                             </span>
                         )}
                     </div>
@@ -121,7 +122,7 @@ function DeadlineForm({ technology, onSave, onClose }) {
                                 id="hours-error"
                                 className="error-message"
                                 role="alert">
-                                ⚠️ {errors.estimatedHours}
+                                <Icon icon="mdi:alert" style={{ verticalAlign: "middle", marginRight: 6 }} /> {errors.estimatedHours}
                             </span>
                         )}
                     </div>
@@ -130,7 +131,7 @@ function DeadlineForm({ technology, onSave, onClose }) {
                         <button
                             type="submit"
                             className="save-btn">
-                            ✓ Сохранить
+                            <Icon icon="mdi:check" style={{ verticalAlign: "middle", marginRight: 8 }} /> Сохранить
                         </button>
                         <button
                             type="button"

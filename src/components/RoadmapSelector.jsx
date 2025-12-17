@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./RoadmapSelector.css";
+import { Icon } from "@iconify/react";
 
 function RoadmapSelector({ roadmaps, selectedRoadmap, onSelectRoadmap, loading }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -23,8 +24,8 @@ function RoadmapSelector({ roadmaps, selectedRoadmap, onSelectRoadmap, loading }
                 onClick={() => setIsOpen(!isOpen)}
                 aria-expanded={isOpen}
                 aria-label="Выбрать роадмап">
-                <span className="current-roadmap">📍 {selectedRoadmap?.title || "Выберите роадмап"}</span>
-                <span className="dropdown-icon">{isOpen ? "▲" : "▼"}</span>
+                <span className="current-roadmap"><Icon icon="mdi:map-marker" style={{ verticalAlign: "middle", marginRight: 8 }} /> {selectedRoadmap?.title || "Выберите роадмап"}</span>
+                <span className="dropdown-icon">{isOpen ? <Icon icon="mdi:chevron-up" /> : <Icon icon="mdi:chevron-down" />}</span>
             </button>
 
             {isOpen && (
@@ -48,7 +49,7 @@ function RoadmapSelector({ roadmaps, selectedRoadmap, onSelectRoadmap, loading }
                                             <h4>{roadmap.title}</h4>
                                             {roadmap.description && <p>{roadmap.description}</p>}
                                         </div>
-                                        {isSelected && <span className="check-icon">✓</span>}
+                                        {isSelected && <span className="check-icon"><Icon icon="mdi:check" /></span>}
                                     </button>
                                 );
                             })}

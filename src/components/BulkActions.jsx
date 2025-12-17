@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./BulkActions.css";
+import { Icon } from "@iconify/react";
 
 function BulkActions({ technologies, onBulkUpdate }) {
     const [selectedIds, setSelectedIds] = useState([]);
@@ -26,7 +27,7 @@ function BulkActions({ technologies, onBulkUpdate }) {
         if (window.confirm(`Изменить статус ${selectedIds.length} технологий на "${getStatusLabel(newStatus)}"?`)) {
             onBulkUpdate(selectedIds, newStatus);
             setSelectedIds([]);
-            alert(`✅ Статус изменен для ${selectedIds.length} технологий`);
+            alert(`Статус изменен для ${selectedIds.length} технологий`);
         }
     };
 
@@ -41,14 +42,14 @@ function BulkActions({ technologies, onBulkUpdate }) {
 
     return (
         <div className="bulk-actions">
-            <h3>🔧 Массовое редактирование</h3>
+            <h3><Icon icon="mdi:wrench" style={{ verticalAlign: "middle", marginRight: 8 }} /> Массовое редактирование</h3>
 
             <div className="bulk-actions-controls">
                 <button
                     onClick={handleSelectAll}
                     className="select-all-btn"
                     aria-label={selectedIds.length === technologies.length ? "Снять выделение со всех" : "Выбрать все"}>
-                    {selectedIds.length === technologies.length ? "◻️ Снять выделение" : "☑️ Выбрать все"}
+                    {selectedIds.length === technologies.length ? <><Icon icon="mdi:checkbox-blank-outline" style={{ verticalAlign: "middle", marginRight: 8 }} /> Снять выделение</> : <><Icon icon="mdi:checkbox-marked" style={{ verticalAlign: "middle", marginRight: 8 }} /> Выбрать все</>}
                 </button>
 
                 <div className="selected-count">
@@ -89,7 +90,7 @@ function BulkActions({ technologies, onBulkUpdate }) {
                         <button
                             onClick={handleApplyStatus}
                             className="apply-btn">
-                            ✓ Применить
+                            <Icon icon="mdi:check" style={{ verticalAlign: "middle", marginRight: 8 }} /> Применить
                         </button>
                     </div>
                 </div>

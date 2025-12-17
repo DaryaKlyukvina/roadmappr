@@ -1,4 +1,5 @@
 import "./FilterBar.css";
+import { Icon } from "@iconify/react";
 
 function FilterBar({ activeFilter, onFilterChange, searchQuery, onSearchChange }) {
     const filters = [
@@ -18,7 +19,7 @@ function FilterBar({ activeFilter, onFilterChange, searchQuery, onSearchChange }
                     onChange={(e) => onSearchChange(e.target.value)}
                     className="search-input"
                 />
-                <span className="search-icon">🔍</span>
+                <span className="search-icon"><Icon icon="mdi:magnify" /></span>
             </div>
 
             <div className="filter-buttons">

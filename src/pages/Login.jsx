@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { useNotification } from "../contexts/NotificationContext";
+import { Icon } from "@iconify/react";
 import "./Login.css";
 
 function Login() {
@@ -19,7 +20,7 @@ function Login() {
         if (isRegister) {
             const result = register(username, email, password);
             if (result.success) {
-                success("✅ Регистрация успешна!");
+                success(<><Icon icon="mdi:check-circle" style={{ verticalAlign: "middle", marginRight: 8 }} /> Регистрация успешна!</>);
                 navigate("/");
             } else {
                 error(result.error);
@@ -27,7 +28,7 @@ function Login() {
         } else {
             const result = login(username, password);
             if (result.success) {
-                success("✅ Вход выполнен!");
+                success(<><Icon icon="mdi:check-circle" style={{ verticalAlign: "middle", marginRight: 8 }} /> Вход выполнен!</>);
                 navigate("/");
             } else {
                 error(result.error);
@@ -39,7 +40,7 @@ function Login() {
         <div className="login-page">
             <div className="login-container">
                 <div className="login-header">
-                    <h1>🚀 Roadmappr</h1>
+                    <h1><Icon icon="mdi:rocket" style={{ verticalAlign: "middle", marginRight: 8 }} /> Roadmappr</h1>
                     <p>{isRegister ? "Создать аккаунт" : "Войти в систему"}</p>
                 </div>
 

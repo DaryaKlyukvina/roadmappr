@@ -1,5 +1,6 @@
 import { useAuth } from "../contexts/AuthContext";
 import { useNotification } from "../contexts/NotificationContext";
+import { Icon } from "@iconify/react";
 import "./Account.css";
 
 function Account() {
@@ -8,7 +9,7 @@ function Account() {
 
     const handleLogout = () => {
         logout();
-        success("👋 Вы вышли из системы");
+        success(<><Icon icon="mdi:logout" style={{ verticalAlign: "middle", marginRight: 8 }} /> Вы вышли из системы</>);
     };
 
     return (

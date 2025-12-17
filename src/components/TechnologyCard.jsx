@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import DeadlineForm from "./DeadlineForm";
 import "./TechnologyCard.css";
+import { Icon } from "@iconify/react";
 
 function TechnologyCard({ technology, onStatusChange, onNotesChange, onUpdate }) {
     const [isEditingNotes, setIsEditingNotes] = useState(false);
@@ -41,21 +42,21 @@ function TechnologyCard({ technology, onStatusChange, onNotesChange, onUpdate })
             case "completed":
                 return {
                     color: "#4CAF50",
-                    icon: "✓",
+                    icon: "mdi:check-circle",
                     label: "Изучено",
                     bgColor: "#E8F5E9",
                 };
             case "in-progress":
                 return {
                     color: "#FF9800",
-                    icon: "⟳",
+                    icon: "mdi:progress-clock",
                     label: "В процессе",
                     bgColor: "#FFF3E0",
                 };
             default: // not-started
                 return {
                     color: "#9E9E9E",
-                    icon: "○",
+                    icon: "mdi:circle-outline",
                     label: "Не начато",
                     bgColor: "#F5F5F5",
                 };
@@ -85,7 +86,7 @@ function TechnologyCard({ technology, onStatusChange, onNotesChange, onUpdate })
                     <span
                         className="status-icon"
                         style={{ color: statusConfig.color }}>
-                        {statusConfig.icon}
+                        <Icon icon={statusConfig.icon} style={{ verticalAlign: "middle" }} />
                     </span>
                     <span
                         className="status-label"
@@ -104,22 +105,22 @@ function TechnologyCard({ technology, onStatusChange, onNotesChange, onUpdate })
                     onClick={(e) => e.stopPropagation()}>
                     {technology.deadline && (
                         <span className="meta-item">
-                            📅 Срок: {new Date(technology.deadline).toLocaleDateString("ru-RU")}
+                            <Icon icon="mdi:calendar" style={{ verticalAlign: "middle", marginRight: 6 }} /> Срок: {new Date(technology.deadline).toLocaleDateString("ru-RU")}
                         </span>
                     )}
-                    {technology.estimatedHours && <span className="meta-item">⏱️ {technology.estimatedHours}ч</span>}
+                    {technology.estimatedHours && <span className="meta-item"><Icon icon="mdi:timer" style={{ verticalAlign: "middle", marginRight: 6 }} /> {technology.estimatedHours}ч</span>}
                 </div>
             )}
 
             <div
                 className="card-actions-row"
                 onClick={(e) => e.stopPropagation()}>
-                <button
-                    className="deadline-btn"
-                    onClick={() => setShowDeadlineForm(true)}
-                    title="Установить сроки">
-                    📅 Сроки
-                </button>
+                    <button
+                        className="deadline-btn"
+                        onClick={() => setShowDeadlineForm(true)}
+                        title="Установить сроки">
+                        <Icon icon="mdi:calendar" style={{ verticalAlign: "middle", marginRight: 8 }} /> Сроки
+                    </button>
             </div>
 
             <div
@@ -131,7 +132,7 @@ function TechnologyCard({ technology, onStatusChange, onNotesChange, onUpdate })
                         <button
                             onClick={() => setIsEditingNotes(true)}
                             className="edit-notes-btn">
-                            {technology.notes ? "✎ Редактировать" : "+ Добавить заметку"}
+                            {technology.notes ? <><Icon icon="mdi:pencil" style={{ verticalAlign: "middle", marginRight: 6 }} /> Редактировать</> : <><Icon icon="mdi:plus" style={{ verticalAlign: "middle", marginRight: 6 }} /> Добавить заметку</>}
                         </button>
                     )}
                 </div>

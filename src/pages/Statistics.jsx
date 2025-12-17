@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import useTechnologiesApi from "../hooks/useTechnologiesApi";
 import useTechnologies from "../hooks/useTechnologies";
 import "./Statistics.css";
+import { Icon } from "@iconify/react";
 
 function Statistics() {
     const { technologies: apiTechnologies } = useTechnologiesApi();
@@ -64,21 +65,21 @@ function Statistics() {
     return (
         <div className="statistics-page">
             <div className="statistics-header">
-                <h1>📊 Статистика изучения</h1>
+                <h1><Icon icon="mdi:chart-bar" style={{ verticalAlign: "middle", marginRight: 8 }} /> Статистика изучения</h1>
                 <p>Визуализация вашего прогресса</p>
             </div>
 
             <div className="statistics-container">
                 <div className="statistics-overview">
                     <div className="overview-card total">
-                        <div className="overview-icon">📚</div>
+                        <div className="overview-icon"><Icon icon="mdi:book-open" /></div>
                         <div className="overview-content">
                             <div className="overview-label">Всего технологий</div>
                             <div className="overview-value">{totalCount}</div>
                         </div>
                     </div>
                     <div className="overview-card progress">
-                        <div className="overview-icon">⏳</div>
+                        <div className="overview-icon"><Icon icon="mdi:timer-sand" /></div>
                         <div className="overview-content">
                             <div className="overview-label">Общий прогресс</div>
                             <div className="overview-value">{progressPercent}%</div>

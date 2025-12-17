@@ -11,6 +11,7 @@ import useTechnologies from "../hooks/useTechnologies";
 import useTechnologiesApi from "../hooks/useTechnologiesApi";
 import useDebounce from "../hooks/useDebounce";
 import { useNotification } from "../contexts/NotificationContext";
+import { Icon } from "@iconify/react";
 import "./Home.css";
 
 function Home() {
@@ -108,27 +109,27 @@ function Home() {
             }
         }, 100);
 
-        info(`🎲 Выбрана: ${random.title}`);
+        info(<> <Icon icon="mdi:dice-5" style={{ verticalAlign: "middle", marginRight: 8 }} />{`Выбрана: ${random.title}`}</>);
     };
 
     const handleCompleteAll = () => {
         if (window.confirm("Отметить все технологии как изученные?")) {
             completeAll();
-            success("✅ Все технологии отмечены как изученные!");
+            success(<><Icon icon="mdi:check-circle" style={{ verticalAlign: "middle", marginRight: 8 }} /> Все технологии отмечены как изученные!</>);
         }
     };
 
     const handleResetAll = () => {
         if (window.confirm("Сбросить все статусы?")) {
             resetAll();
-            info("🔄 Все статусы сброшены");
+            info(<><Icon icon="mdi:restart" style={{ verticalAlign: "middle", marginRight: 8 }} /> Все статусы сброшены</>);
         }
     };
 
     const handleImport = (data) => {
         const result = importTechnologies(data);
-        if (result) {
-            success(`✅ Импортировано ${data.length} технологий`);
+            if (result) {
+            success(<><Icon icon="mdi:download" style={{ verticalAlign: "middle", marginRight: 8 }} />{`Импортировано ${data.length} технологий`}</>);
         }
     };
 
@@ -142,7 +143,7 @@ function Home() {
 
     const handleRoadmapSelect = async (roadmapId) => {
         await fetchRoadmapById(roadmapId);
-        success(`✅ Роадмап загружен`);
+        success(<><Icon icon="mdi:check-circle" style={{ verticalAlign: "middle", marginRight: 8 }} /> Роадмап загружен</>);
     };
 
     if (loading && technologies.length === 0) {
@@ -159,12 +160,12 @@ function Home() {
     return (
         <div className="app">
             <header className="app-header">
-                <h1>🚀 Трекер изучения технологий</h1>
+                <h1><Icon icon="mdi:rocket" style={{ verticalAlign: "middle", marginRight: 8 }} /> Трекер изучения технологий</h1>
                 <p>Отслеживайте свой прогресс в изучении новых технологий</p>
             </header>
 
             <main className="app-main">
-                {apiError && <div className="error-message">⚠️ Ошибка загрузки: {apiError}</div>}
+                {apiError && <div className="error-message"><Icon icon="mdi:alert" style={{ verticalAlign: "middle", marginRight: 8 }} /> Ошибка загрузки: {apiError}</div>}
 
                 <RoadmapSelector
                     roadmaps={roadmaps}
@@ -222,17 +223,17 @@ function Home() {
                     <button
                         onClick={handleCompleteAll}
                         className="action-btn complete-all-btn">
-                        ✓ Отметить все как изученные
+                        <Icon icon="mdi:check" style={{ verticalAlign: "middle", marginRight: 8 }} /> Отметить все как изученные
                     </button>
                     <button
                         onClick={handleResetAll}
                         className="action-btn reset-btn">
-                        ↺ Сбросить все статусы
+                        <Icon icon="mdi:restart" style={{ verticalAlign: "middle", marginRight: 8 }} /> Сбросить все статусы
                     </button>
                     <button
                         onClick={handleRandomPick}
                         className="action-btn random-btn">
-                        🎲 Случайный выбор
+                        <Icon icon="mdi:dice-5" style={{ verticalAlign: "middle", marginRight: 8 }} /> Случайный выбор
                     </button>
                 </div>
 
@@ -252,7 +253,7 @@ function Home() {
                     {filteredTechnologies.length === 0 ? (
                         <div className="no-results">
                             {searchQuery ? (
-                                <p>По запросу "{searchQuery}" ничего не найдено 😔</p>
+                                <p>По запросу "{searchQuery}" ничего не найдено <Icon icon="mdi:emoticon-sad" style={{ verticalAlign: "middle", marginLeft: 8 }} /></p>
                             ) : (
                                 <p>Нет технологий с таким статусом</p>
                             )}
@@ -274,7 +275,7 @@ function Home() {
             </main>
 
             <footer className="app-footer">
-                <p>💡 Совет: Кликните по карточке для смены статуса</p>
+                <p><Icon icon="mdi:lightbulb" style={{ verticalAlign: "middle", marginRight: 8 }} /> Совет: Кликните по карточке для смены статуса</p>
                 <p>Roadmap Tracker © 2025 | Данные сохраняются автоматически</p>
             </footer>
         </div>

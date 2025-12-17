@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useAuth } from "../contexts/AuthContext";
 import { useNotification } from "../contexts/NotificationContext";
+import { Icon } from "@iconify/react";
 import "./Settings.css";
 
 function Settings() {
@@ -35,17 +36,17 @@ function Settings() {
                 if (userData) localStorage.setItem("roadmap-user", userData);
                 if (themeData) localStorage.setItem("theme", themeData);
 
-                success("🗑️ Все данные очищены (кроме настроек аккаунта и темы)");
+                success(<><Icon icon="mdi:delete" style={{ verticalAlign: "middle", marginRight: 8 }} /> Все данные очищены (кроме настроек аккаунта и темы)</>);
                 break;
 
             case "roadmap":
                 localStorage.removeItem("roadmap-technologies");
-                success("🗑️ Локальные данные роадмапов очищены");
+                success(<><Icon icon="mdi:delete-variant" style={{ verticalAlign: "middle", marginRight: 8 }} /> Локальные данные роадмапов очищены</>);
                 break;
 
             case "api":
                 localStorage.removeItem("roadmap-api-technologies");
-                success("🗑️ Данные из API очищены");
+                success(<><Icon icon="mdi:database-refresh" style={{ verticalAlign: "middle", marginRight: 8 }} /> Данные из API очищены</>);
                 break;
         }
 
@@ -74,14 +75,14 @@ function Settings() {
 
     return (
         <div className="settings-page">
-            <div className="settings-header">
-                <h1>⚙️ Настройки</h1>
+                <div className="settings-header">
+                <h1><Icon icon="mdi:cog" style={{ verticalAlign: "middle", marginRight: 8 }} /> Настройки</h1>
                 <p>Персонализация и управление данными</p>
             </div>
 
             <div className="settings-container">
                 <section className="settings-section">
-                    <h2>🎨 Внешний вид</h2>
+                    <h2><Icon icon="mdi:palette" style={{ verticalAlign: "middle", marginRight: 8 }} /> Внешний вид</h2>
                     <div className="setting-item">
                         <div className="setting-info">
                             <div className="setting-label">Тема оформления</div>
@@ -93,13 +94,13 @@ function Settings() {
                             className={`theme-switch ${isDarkMode ? "dark" : "light"}`}
                             onClick={toggleTheme}
                             aria-label="Переключить тему">
-                            <div className="theme-switch-slider">{isDarkMode ? "🌙" : "☀️"}</div>
+                            <div className="theme-switch-slider">{isDarkMode ? <Icon icon="mdi:weather-night" /> : <Icon icon="mdi:white-balance-sunny" />}</div>
                         </button>
                     </div>
                 </section>
 
                 <section className="settings-section">
-                    <h2>💾 Хранилище данных</h2>
+                    <h2><Icon icon="mdi:database" style={{ verticalAlign: "middle", marginRight: 8 }} /> Хранилище данных</h2>
                     <div className="storage-info">
                         <div className="storage-stat">
                             <span className="storage-label">Использовано:</span>
@@ -148,7 +149,7 @@ function Settings() {
 
                 {user && (
                     <section className="settings-section">
-                        <h2>👤 Информация об аккаунте</h2>
+                        <h2><Icon icon="mdi:account" style={{ verticalAlign: "middle", marginRight: 8 }} /> Информация об аккаунте</h2>
                         <div className="account-info">
                             <div className="info-row">
                                 <span className="info-label">Пользователь:</span>
@@ -163,7 +164,7 @@ function Settings() {
                 )}
 
                 <section className="settings-section">
-                    <h2>ℹ️ О приложении</h2>
+                    <h2><Icon icon="mdi:information" style={{ verticalAlign: "middle", marginRight: 8 }} /> О приложении</h2>
                     <div className="app-info">
                         <p>
                             <strong>Roadmappr</strong> - трекер изучения технологий
@@ -181,7 +182,7 @@ function Settings() {
                     <div
                         className="modal-content"
                         onClick={(e) => e.stopPropagation()}>
-                        <h3>⚠️ Подтверждение</h3>
+                        <h3><Icon icon="mdi:alert" style={{ verticalAlign: "middle", marginRight: 8 }} /> Подтверждение</h3>
                         <p>
                             {showConfirmDialog === "all" &&
                                 "Вы уверены, что хотите очистить все данные приложения? Данные аккаунта и темы будут сохранены."}
