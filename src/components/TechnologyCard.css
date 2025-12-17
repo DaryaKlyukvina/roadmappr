@@ -11,7 +11,7 @@
 
 .technology-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 14px var(--shadow);
 }
 
 .card-header {
@@ -42,13 +42,13 @@
 .card-title {
     margin: 0 0 8px 0;
     font-size: 20px;
-    color: #333;
+    color: var(--text-primary);
     font-weight: 600;
 }
 
 .card-description {
     margin: 0 0 16px 0;
-    color: #666;
+    color: var(--text-secondary);
     font-size: 14px;
     line-height: 1.5;
 }
@@ -62,8 +62,8 @@
 
 .meta-item {
     font-size: 13px;
-    color: #666;
-    background: rgba(33, 150, 243, 0.1);
+    color: var(--text-secondary);
+    background: rgba(37,98,235,0.06);
     padding: 4px 12px;
     border-radius: 12px;
 }
@@ -74,9 +74,9 @@
 
 .deadline-btn {
     padding: 6px 16px;
-    background: white;
-    border: 1px solid #2196f3;
-    color: #2196f3;
+    background: var(--card-bg);
+    border: 1px solid var(--accent);
+    color: var(--accent);
     border-radius: 6px;
     cursor: pointer;
     font-size: 13px;
@@ -89,7 +89,7 @@
 }
 
 .card-notes {
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid var(--border-color);
     padding-top: 16px;
     margin-top: 16px;
 }
@@ -104,14 +104,14 @@
 .notes-header h4 {
     margin: 0;
     font-size: 14px;
-    color: #555;
+    color: var(--text-primary);
     font-weight: 600;
 }
 
 .edit-notes-btn {
     background: none;
-    border: 1px solid #2196f3;
-    color: #2196f3;
+    border: 1px solid var(--accent);
+    color: var(--accent);
     padding: 4px 12px;
     border-radius: 4px;
     cursor: pointer;
@@ -142,7 +142,7 @@
 .notes-textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     font-family: inherit;
     font-size: 14px;
@@ -152,13 +152,13 @@
 
 .notes-textarea:focus {
     outline: none;
-    border-color: #2196f3;
-    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(31,111,235,0.08);
 }
 
 .notes-hint {
     font-size: 12px;
-    color: #999;
+    color: var(--text-secondary);
     margin-bottom: 8px;
 }
 
@@ -178,26 +178,26 @@
 }
 
 .save-btn {
-    background: #4caf50;
+    background: var(--status-completed);
     color: white;
 }
 
 .save-btn:hover {
-    background: #45a049;
+    background: color-mix(in srgb, var(--status-completed) 85%, black 15%);
 }
 
 .cancel-btn {
-    background: #f5f5f5;
-    color: #666;
+    background: var(--bg-primary);
+    color: var(--text-secondary);
 }
 
 .cancel-btn:hover {
-    background: #e0e0e0;
+    background: color-mix(in srgb, var(--border-color) 85%, white 15%);
 }
 
 .notes-display {
     font-size: 14px;
-    color: #666;
+    color: var(--text-secondary);
     line-height: 1.5;
 }
 
@@ -206,7 +206,7 @@
 }
 
 .no-notes {
-    color: #999;
+    color: var(--text-secondary);
     font-style: italic;
 }
 
