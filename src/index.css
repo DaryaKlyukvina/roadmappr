@@ -188,6 +188,10 @@ body.dark-theme .statistics-item__number {
     color: white;
 }
 
+body.dark-theme .stat-value {
+    color: white;
+}
+
 #root {
     width: 100%;
 }

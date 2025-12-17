@@ -214,3 +214,21 @@
 .technology-card {
     transition: background-color 0.3s ease, border-left-color 0.3s ease, transform 0.2s ease;
 }
+/* Dark theme */
+body.dark-theme .technology-card {
+    background: var(--card-bg);
+    border-left-color: var(--border-color);
+    box-shadow: 0 2px 6px var(--shadow);
+}
+
+body.dark-theme .card-title {
+    color: var(--text-primary);
+}
+
+body.dark-theme .card-description {
+    color: var(--text-secondary);
+}
+
+body.dark-theme .status-label {
+    color: inherit;
+}
