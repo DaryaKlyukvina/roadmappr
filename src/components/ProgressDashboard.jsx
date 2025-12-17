@@ -11,7 +11,7 @@ function ProgressDashboard({ stages }) {
 
   return (
     <div className="progress-dashboard">
-      <h2>📊 Прогресс проекта</h2>
+      <h2>Прогресс проекта</h2>
       
       <div className="progress-bar-container">
         <div className="progress-bar">
