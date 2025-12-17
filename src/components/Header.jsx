@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { Icon } from "@iconify/react";
+import ThemeToggle from "./ThemeToggle";
 import "./Header.css";
 
 function Header() {
@@ -49,6 +50,10 @@ function Header() {
                         </Link>
                     )}
                 </nav>
+
+                <div className="header-actions">
+                    <ThemeToggle />
+                </div>
             </div>
         </header>
     );

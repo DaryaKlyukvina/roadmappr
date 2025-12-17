@@ -1,51 +1,67 @@
 .theme-toggle {
-    position: fixed;
-    top: 10px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    cursor: pointer;
-    display: flex;
+    position: relative;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+    padding: 6px;
 }
 
 .theme-toggle:hover {
-    transform: scale(1.1) rotate(10deg);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    background: rgba(0,0,0,0.04);
 }
 
 .theme-icon {
-    font-size: 24px;
-    transition: transform 0.3s ease;
+    font-size: 20px;
+    display: inline-flex;
 }
 
 .theme-toggle:active .theme-icon {
-    transform: rotate(360deg);
+    transform: rotate(180deg);
 }
 
 /* Темная тема */
 .dark-theme .theme-toggle {
-    border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(255,255,255,0.03);
 }
 
 @media (max-width: 768px) {
+    /* Make sure the toggle stays inline and small on mobile */
     .theme-toggle {
-        top: 10px;
-        right: 10px;
-        width: 45px;
-        height: 45px;
+        width: 36px;
+        height: 36px;
+        padding: 4px;
     }
 
     .theme-icon {
-        font-size: 20px;
+        font-size: 18px;
+    }
+
+    /* Ensure header layout has space; if nav overflows, reduce gap */
+    .nav-links {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* On very small screens, reduce spacing and ensure icons don't overlap */
+    .nav-container {
+        padding-right: 8px;
+    }
+
+    .nav-links {
+        gap: 6px;
+    }
+
+    .theme-toggle {
+        width: 32px;
+        height: 32px;
     }
 }
