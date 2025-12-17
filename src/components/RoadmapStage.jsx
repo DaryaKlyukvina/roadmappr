@@ -33,28 +33,28 @@ function RoadmapStage({ stage, onStatusChange, onNotesChange }) {
       case 'completed':
         return { 
           color: '#4CAF50', 
-          icon: '✅', 
+          icon: '', 
           label: 'Завершено',
           bgColor: '#E8F5E9'
         };
       case 'in-progress':
         return { 
           color: '#FF9800', 
-          icon: '🔄', 
+          icon: '', 
           label: 'В работе',
           bgColor: '#FFF3E0'
         };
       case 'blocked':
         return { 
           color: '#F44336', 
-          icon: '🔴', 
-          label: 'Заблокировано',
+          icon: '', 
+          label: 'Отменено',
           bgColor: '#FFEBEE'
         };
       default:
         return { 
           color: '#2196F3', 
-          icon: '⏳', 
+          icon: '', 
           label: 'Запланировано',
           bgColor: '#E3F2FD'
         };
@@ -70,7 +70,6 @@ function RoadmapStage({ stage, onStatusChange, onNotesChange }) {
     >
       <div className="stage-header">
         <div className="status-indicator">
-          <span className="status-icon">{statusConfig.icon}</span>
           <span className="status-label" style={{ color: statusConfig.color }}>
             {statusConfig.label}
           </span>
@@ -78,8 +77,8 @@ function RoadmapStage({ stage, onStatusChange, onNotesChange }) {
         
         {stage.priority && (
           <span className={`priority-badge priority-${stage.priority}`}>
-            {stage.priority === 'high' ? '🔴 Высокий' : 
-             stage.priority === 'medium' ? '🟡 Средний' : '🔵 Низкий'}
+            {stage.priority === 'high' ? 'Высокий' : 
+             stage.priority === 'medium' ? 'Средний' : 'Низкий'}
           </span>
         )}
       </div>
@@ -88,13 +87,13 @@ function RoadmapStage({ stage, onStatusChange, onNotesChange }) {
       <p className="stage-description">{stage.description}</p>
 
       <div className="stage-dates">
-        {stage.createdAt && <span>📅 Создано: {stage.createdAt}</span>}
-        {stage.completedAt && <span>✅ Завершено: {stage.completedAt}</span>}
+        {stage.createdAt && <span>Создано: {stage.createdAt}</span>}
+        {stage.completedAt && <span>Завершено: {stage.completedAt}</span>}
       </div>
 
       <div className="stage-notes">
         <div className="notes-header">
-          <h4>📝 Заметки:</h4>
+          <h4>Заметки:</h4>
           {!isEditingNotes && (
             <button onClick={() => setIsEditingNotes(true)} className="edit-notes-btn">
               {stage.notes ? 'Редактировать' : 'Добавить заметку'}
@@ -112,8 +111,8 @@ function RoadmapStage({ stage, onStatusChange, onNotesChange }) {
               className="notes-textarea"
             />
             <div className="notes-actions">
-              <button onClick={handleSaveNotes} className="save-btn">💾 Сохранить</button>
-              <button onClick={handleCancelEdit} className="cancel-btn">❌ Отмена</button>
+              <button onClick={handleSaveNotes} className="save-btn">Сохранить</button>
+              <button onClick={handleCancelEdit} className="cancel-btn">Отмена</button>
             </div>
           </div>
         ) : (
@@ -127,10 +126,10 @@ function RoadmapStage({ stage, onStatusChange, onNotesChange }) {
         {stage.status === 'planned' && (
           <>
             <button onClick={() => handleStatusChange('in-progress')} className="action-btn start-btn">
-              ▶️ Начать работу
+              Начать работу
             </button>
             <button onClick={() => handleStatusChange('blocked')} className="action-btn block-btn">
-              ⏸️ Заблокировать
+              Закрыть
             </button>
           </>
         )}
@@ -138,23 +137,23 @@ function RoadmapStage({ stage, onStatusChange, onNotesChange }) {
         {stage.status === 'in-progress' && (
           <>
             <button onClick={() => handleStatusChange('completed')} className="action-btn complete-btn">
-              ✅ Завершить
+              Завершить
             </button>
             <button onClick={() => handleStatusChange('planned')} className="action-btn postpone-btn">
-              ↩️ Вернуть в план
+              Вернуть в план
             </button>
           </>
         )}
 
         {stage.status === 'completed' && (
           <button onClick={() => handleStatusChange('in-progress')} className="action-btn reopen-btn">
-            🔄 Открыть заново
+            Открыть заново
           </button>
         )}
 
         {stage.status === 'blocked' && (
           <button onClick={() => handleStatusChange('in-progress')} className="action-btn unblock-btn">
-            ▶️ Разблокировать
+            Возобновить
           </button>
         )}
       </div>

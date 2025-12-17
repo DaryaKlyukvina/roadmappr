@@ -45,7 +45,7 @@ function ProgressDashboard({ stages }) {
         </div>
         
         <div className="stat-card blocked">
-          <h3>Заблокировано</h3>
+          <h3>Отменено</h3>
           <p className="stat-number">{blocked}</p>
         </div>
       </div>

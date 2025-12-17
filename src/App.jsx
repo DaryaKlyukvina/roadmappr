@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import RoadmapStage from './components/RoadmapStage';
 import ProgressDashboard from './components/ProgressDashboard';
-import AddStageForm from './components/AddStageForm';
+import AddStageForm from './components/AddStageform';
 import './App.css';
 
 const initialStages = [
@@ -120,10 +120,10 @@ function App() {
         
         <div className="quick-actions">
           <button onClick={handleCompleteAll} className="action-btn complete-all-btn">
-            ✅ Отметить все как завершённые
+            Отметить все как завершённые
           </button>
           <button onClick={handleResetAll} className="action-btn reset-btn">
-            🔄 Сбросить все статусы
+            Сбросить все статусы
           </button>
         </div>
 

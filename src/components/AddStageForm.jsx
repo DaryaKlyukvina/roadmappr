@@ -44,7 +44,7 @@ function AddStageForm({ onAddStage }) {
 
   return (
     <form onSubmit={handleSubmit} className="add-stage-form">
-      <h3>➕ Добавить новый этап</h3>
+      <h3>Добавить новый этап</h3>
       
       <div className="form-group">
         <label>Название этапа *</label>
@@ -78,9 +78,9 @@ function AddStageForm({ onAddStage }) {
             value={formData.priority} 
             onChange={handleChange}
           >
-            <option value="high">🔴 Высокий</option>
-            <option value="medium">🟡 Средний</option>
-            <option value="low">🔵 Низкий</option>
+            <option value="high">Высокий</option>
+            <option value="medium">Средний</option>
+            <option value="low">Низкий</option>
           </select>
         </div>
 
@@ -98,7 +98,7 @@ function AddStageForm({ onAddStage }) {
       </div>
 
       <button type="submit" className="submit-btn">
-        ➕ Добавить этап
+        Добавить этап
       </button>
     </form>
   );

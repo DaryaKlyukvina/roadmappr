@@ -37,6 +37,9 @@
 }
 
 .priority-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 4px 12px;
   border-radius: 20px;
   font-size: 0.8em;
@@ -56,6 +59,27 @@
 .priority-low {
   background-color: #E8F5E9;
   color: #2E7D32;
+}
+
+/* colored dot before the priority label */
+.priority-badge::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.priority-high::before {
+  background-color: #C62828;
+}
+
+.priority-medium::before {
+  background-color: #EF6C00;
+}
+
+.priority-low::before {
+  background-color: #2E7D32;
 }
 
 .stage-title {
