@@ -89,7 +89,7 @@ body.dark-theme select,
 body.dark-theme .notes-textarea,
 body.dark-theme .search-input,
 body.dark-theme .status-select {
-    background: #0d1117;
+    background: var(--card-bg);
     color: var(--text-primary);
     border-color: var(--border-color);
 }
@@ -97,8 +97,8 @@ body.dark-theme .status-select {
 body.dark-theme input:focus,
 body.dark-theme textarea:focus,
 body.dark-theme select:focus {
-    border-color: #1f6feb;
-    box-shadow: 0 0 0 3px rgba(31, 111, 235, 0.2);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(31,111,235,0.08);
 }
 
 body.dark-theme .stat-item {
