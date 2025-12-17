@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import DeadlineForm from "./DeadlineForm";
 import "./TechnologyCard.css";
 import { Icon } from "@iconify/react";
+import { useTheme } from "../contexts/ThemeContext";
 
 function TechnologyCard({ technology, onStatusChange, onNotesChange, onUpdate }) {
+    const { isDarkMode } = useTheme();
     const [isEditingNotes, setIsEditingNotes] = useState(false);
     const [localNotes, setLocalNotes] = useState(technology.notes || "");
     const [showDeadlineForm, setShowDeadlineForm] = useState(false);
@@ -41,24 +43,24 @@ function TechnologyCard({ technology, onStatusChange, onNotesChange, onUpdate })
         switch (technology.status) {
             case "completed":
                 return {
-                    color: "#4CAF50",
+                    color: isDarkMode ? "#2ea36b" : "#4CAF50",
                     icon: "mdi:check-circle",
                     label: "Изучено",
-                    bgColor: "#E8F5E9",
+                    bgColor: isDarkMode ? "rgba(46,163,107,0.12)" : "#E8F5E9",
                 };
             case "in-progress":
                 return {
-                    color: "#FF9800",
+                    color: isDarkMode ? "#d9913a" : "#FF9800",
                     icon: "mdi:progress-clock",
                     label: "В процессе",
-                    bgColor: "#FFF3E0",
+                    bgColor: isDarkMode ? "rgba(217,145,58,0.12)" : "#FFF3E0",
                 };
             default: // not-started
                 return {
-                    color: "#9E9E9E",
+                    color: isDarkMode ? "#8f97a1" : "#9E9E9E",
                     icon: "mdi:circle-outline",
                     label: "Не начато",
-                    bgColor: "#F5F5F5",
+                    bgColor: isDarkMode ? "rgba(143,151,161,0.08)" : "#F5F5F5",
                 };
         }
     };

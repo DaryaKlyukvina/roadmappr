@@ -62,7 +62,7 @@ body.dark-theme .filter-bar,
 body.dark-theme .import-export,
 body.dark-theme .bulk-actions,
 body.dark-theme .deadline-form {
-    background: var(--bg-secondary);
+    background: var(--card-bg);
     color: var(--text-primary);
     box-shadow: 0 2px 8px var(--shadow);
     border-color: var(--border-color);
