@@ -6,10 +6,21 @@
     /* Цветовые переменные для светлой темы */
     --bg-primary: #f5f7fa;
     --bg-secondary: #ffffff;
-    --text-primary: #333333;
-    --text-secondary: #666666;
-    --border-color: #e0e0e0;
-    --shadow: rgba(0, 0, 0, 0.1);
+    --card-bg: #ffffff;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --border-color: #e6e9ee;
+    --shadow: rgba(2, 6, 23, 0.06);
+
+    /* Акцент и статусы */
+    --accent: #2563eb; /* calm blue */
+    --status-completed: #2f855a; /* calm green */
+    --status-inprogress: #d97706; /* warm amber */
+    --status-notstarted: #6b7280; /* muted gray */
+
+    --status-completed-bg: rgba(47,133,90,0.08);
+    --status-inprogress-bg: rgba(217,119,6,0.08);
+    --status-notstarted-bg: rgba(107,114,128,0.06);
 }
 
 body {
@@ -23,12 +34,22 @@ body {
 
 /* Темная тема */
 body.dark-theme {
-    --bg-primary: #0d1117;
-    --bg-secondary: #161b22;
-    --text-primary: #e6edf3;
-    --text-secondary: #8b949e;
-    --border-color: #30363d;
-    --shadow: rgba(0, 0, 0, 0.8);
+    --bg-primary: #07080a;
+    --bg-secondary: #0f1418;
+    --card-bg: #0f1418;
+    --text-primary: #e6eef8;
+    --text-secondary: #9aa6b0;
+    --border-color: #21262a;
+    --shadow: rgba(2, 6, 11, 0.7);
+
+    --accent: #1f6feb; /* slightly muted blue accent */
+    --status-completed: #2ea36b;
+    --status-inprogress: #d9913a;
+    --status-notstarted: #8f97a1;
+
+    --status-completed-bg: rgba(46,163,107,0.06);
+    --status-inprogress-bg: rgba(217,145,58,0.06);
+    --status-notstarted-bg: rgba(143,151,161,0.04);
 }
 
 body.dark-theme .app-header {

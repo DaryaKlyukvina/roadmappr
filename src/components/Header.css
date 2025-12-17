@@ -33,6 +33,12 @@
     align-items: center;
 }
 
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .nav-link {
     text-decoration: none;
     color: #333;
